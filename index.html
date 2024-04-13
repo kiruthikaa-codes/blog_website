@@ -9,9 +9,32 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #1e1e1e;
+        background-color: #347499;
         color: #fff;
     }
+    .star {
+	position: fixed;
+	pointer-events: none;
+}
+
+.star:before, .star:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '\2726';
+	font-size: 9px;
+}
+
+.star:before {
+	color: transparent;
+	text-shadow: 0 0 3px rgb(250, 250, 174);
+}
+
+.star:after {
+	background: yellow;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
     .header {
         display: flex;
         justify-content: space-between;
@@ -30,32 +53,54 @@
     }
     .logo h1 {
         margin: 0;
-        font-size: 24px;
+        font-size: 45px;
+        font-family: 'Tahoma', sans-serif;
+        font-weight: 10;
+        font-style: italic;
     }
     .tagline {
         font-size: 18px;
         margin-top: 10px;
     }
     .intro {
-        padding: 20px;
+        padding: 70px;
+        height: 400px;
         text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 30px;
+        background-image: url('back.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; 
+        color: #ffffff; 
+        opacity: 0.8; 
     }
     .intro p {
         margin: 0;
     }
-    .wiggle {
-        animation: wiggle 0.5s infinite;
-    }
-    @keyframes wiggle {
-        0% { transform: rotateZ(5deg); }
-        50% { transform: rotateZ(-5deg); }
-        100% { transform: rotateZ(5deg); }
-    }
+    
     .container {
-        padding: 20px;
-        margin-top: -50px;
+      height: 120px;
+      width:100%;
+      background-color: whitesmoke;
+      border-radius: 30px;
+      background-color: rgba(49, 48, 48, 0.7);
     }
     .container h2 {
+        margin: 0;
+    }
+
+    .container2 {
+      height: 59px;
+      width:50%;
+      font-size: 29px;
+      border-radius: 20px;
+      background-color: #14202b;
+      display: inline-block; 
+      margin: 20px; 
+      cursor: pointer; 
+    }
+    .container2 h2 {
         margin: 0;
     }
 </style>
@@ -64,46 +109,55 @@
 
 <div class="header">
     <div class="logo">
-        <h1>Fernweh</h1>
+        <h1>fernweh</h1>
     </div>
 </div>
 
-<div class="intro">
-    <p>Welcome to Fernweh - a place where you can embark on literary journeys through poetry, stories, and blogs. Let your imagination wander and discover new worlds within these pages.</p>
-</div>
-
-<div class="container" id="poetry">
-    <h2>Poetry</h2>
-    <p>Indulge in the beauty of words with our collection of poetry.</p>
-</div>
-
-<div class="container" id="story">
-    <h2>Story</h2>
-    <p>Escape into captivating tales and narratives in our story section.</p>
-</div>
-
-<div class="container" id="blog">
-    <h2>Blog</h2>
-    <p>Stay updated with the latest musings, thoughts, and discussions in our blog posts.</p>
+<div class="intro" align="center">
+    <div class="container">
+        <p>Welcome to Fernweh - <br> a place where you can embark on literary journeys through poetry, stories, and blogs. Let your imagination wander and discover new worlds.</p>
+    </div>
+    <br><br>
+    <table width="100%">
+        <th>
+            <td><div class="container2" id="poemContainer">
+                <h2>Write</h2>
+            </div> </td>
+            <td><div class="container2" id="storyContainer">
+                <h2>Read</h2>
+            </div></td>
+        </th>
+    
+    
+    </table>
 </div>
 
 <script>
-    window.addEventListener('scroll', function() {
-        var intro = document.querySelector('.intro');
-        var containers = document.querySelectorAll('.container');
-        var introHeight = intro.offsetHeight;
-        var scrollPosition = window.scrollY;
-
-        if (scrollPosition > introHeight) {
-            containers.forEach(function(container) {
-                container.style.marginTop = '-' + introHeight + 'px';
-            });
-        } else {
-            containers.forEach(function(container) {
-                container.style.marginTop = '0';
-            });
-        }
+    document.getElementById('poemContainer').addEventListener('click', function() {
+        window.location.href = 'write.html'; 
     });
+
+    document.getElementById('storyContainer').addEventListener('click', function() {
+        window.location.href = 'read.html'; 
+    });
+    window.addEventListener('mousemove', function(e) {
+      var arr = [1, 0.9, 0.8, 0.5, 0.2];
+
+      arr.forEach(function(i) {
+        var x = (1 - i) * 75;
+        var star = document.createElement('div');
+
+        star.className = 'star';
+        star.style.top = e.pageY + Math.round(Math.random() * x - x / 2) + 'px';
+        star.style.left = e.pageX + Math.round(Math.random() * x - x / 2) + 'px';
+
+        document.body.appendChild(star);
+
+        window.setTimeout(function() {
+          document.body.removeChild(star);
+        }, Math.round(Math.random() * i * 600));
+      });
+    }, false);
 </script>
 
 </body>
