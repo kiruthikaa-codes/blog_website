@@ -1,13 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog Website</title>
-
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+        text-align: center;
+        color: #333;
+    }
+    .options {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .option {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .option:hover {
+        background-color: #0056b3;
+    }
+</style>
 </head>
 <body>
-<h1>website coming soon!</h1>
-<h3>after CAT2</h3>
-made by: Kiruthika Murugesan 
-22BDS0048
+
+<div class="container">
+    <h1>Welcome to Our Blog</h1>
+    <h2>Choose an Option to Share:</h2>
+    <div class="options">
+        <a href="#" class="option" onclick="showForm('writeup')">Write-up</a>
+        <a href="#" class="option" onclick="showForm('poetry')">Poetry</a>
+        <a href="#" class="option" onclick="showForm('story')">Story</a>
+    </div>
+    <div id="writeupForm" style="display: none;">
+        <h2>Write-up</h2>
+        <textarea rows="5" cols="50" placeholder="Enter your write-up here..."></textarea>
+    </div>
+    <div id="poetryForm" style="display: none;">
+        <h2>Poetry</h2>
+        <textarea rows="5" cols="50" placeholder="Enter your poetry here..."></textarea>
+    </div>
+    <div id="storyForm" style="display: none;">
+        <h2>Story</h2>
+        <textarea rows="5" cols="50" placeholder="Enter your story here..."></textarea>
+    </div>
+</div>
+
+<script>
+    function showForm(formType) {
+        document.getElementById('writeupForm').style.display = 'none';
+        document.getElementById('poetryForm').style.display = 'none';
+        document.getElementById('storyForm').style.display = 'none';
+        
+        if (formType === 'writeup') {
+            document.getElementById('writeupForm').style.display = 'block';
+        } else if (formType === 'poetry') {
+            document.getElementById('poetryForm').style.display = 'block';
+        } else if (formType === 'story') {
+            document.getElementById('storyForm').style.display = 'block';
+        }
+    }
+</script>
+
 </body>
 </html>
+
