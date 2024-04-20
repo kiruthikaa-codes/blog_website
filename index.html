@@ -261,8 +261,8 @@
     var content = document.getElementById("writingContent").value.trim();
     var wordCount = content.split(/\s+/).length;
 
-    if (content === "" || wordCount < 50) {
-      alert("Your work cannot be published. Please make sure the content is not empty and contains at least 50 words.");
+    if (content === "" || wordCount < 20) {
+      alert("Your work cannot be published. Please make sure the content is not empty and contains at least 20 words.");
     } else {
       alert("Your work has been published! Check the Read section.");
       document.getElementById("Write").style.display = "block";
