@@ -3,162 +3,453 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Fernweh</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #347499;
-        color: #fff;
-    }
-    .star {
-	position: fixed;
-	pointer-events: none;
-}
-
-.star:before, .star:after {
-	position: absolute;
-	top: 0;
-	left: 0;
-	content: '\2726';
-	font-size: 9px;
-}
-
-.star:before {
-	color: transparent;
-	text-shadow: 0 0 3px rgb(250, 250, 174);
-}
-
-.star:after {
-	background: yellow;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #000;
-        padding: 10px 20px;
-    }
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-    .logo img {
-        width: 30px;
-        height: 30px;
-        margin-right: 10px;
-    }
-    .logo h1 {
-        margin: 0;
-        font-size: 45px;
-        font-family: 'Tahoma', sans-serif;
-        font-weight: 10;
-        font-style: italic;
-    }
-    .tagline {
-        font-size: 18px;
-        margin-top: 10px;
-    }
-    .intro {
-        padding: 70px;
-        height: 400px;
-        text-align: center;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 30px;
-        background-image: url('back.jpg'); 
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed; 
-        color: #ffffff; 
-        opacity: 0.8; 
-    }
-    .intro p {
-        margin: 0;
-    }
-    
-    .container {
-      height: 120px;
-      width:100%;
-      background-color: whitesmoke;
-      border-radius: 30px;
-      background-color: rgba(49, 48, 48, 0.7);
-    }
-    .container h2 {
-        margin: 0;
-    }
-
-    .container2 {
-      height: 59px;
-      width:50%;
-      font-size: 29px;
-      border-radius: 20px;
-      background-color: #14202b;
-      display: inline-block; 
-      margin: 20px; 
-      cursor: pointer; 
-    }
-    .container2 h2 {
-        margin: 0;
-    }
-</style>
 </head>
-<body>
+<body onload="setDefaultTab()">
 
-<div class="header">
-    <div class="logo">
-        <h1>Fernweh</h1>
-    </div>
+<div class="intro">
+  
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Home')">HOME</button>
+    <button class="tablinks" onclick="openCity(event, 'Read')">READ</button>
+    <button class="tablinks" onclick="openCity(event, 'Write')">WRITE</button>
+    <button class="tablinks" onclick="openCity(event, 'Publish')">PUBLISH</button>
+    <h3 align="right">fernweh</h3>
 </div>
+  
+      <div id="Home" class="tabcontent">
+        <div class="container">
+          <p>ABOUT</p> <br>
+          <p> Welcome to Fernweh, a sanctuary of stories, poetry, and blogs. </p><p>Dive into a world where imagination knows no limits and creativity thrives. Whether you're reading or writing, every word is an adventure waiting to unfold. </p><p>Join us on this journey of boundless expression and endless inspiration. Fernweh—where the magic of storytelling begins.</p>
+        </div>
+        </div>
 
-<div class="intro" align="center">
-    <div class="container">
-        <p>Welcome to Fernweh - <br> a place where you can embark on literary journeys through poetry, stories, and blogs. Let your imagination wander and discover new worlds.</p>
-    </div>
-    <br><br>
-    <table width="100%">
-        <th>
-            <td><div class="container2" id="poemContainer">
-                <h2>Write</h2>
-            </div> </td>
-            <td><div class="container2" id="storyContainer">
-                <h2>Read</h2>
-            </div></td>
-        </th>
-    
-    
-    </table>
+        <div id="Read" class="tabcontent">
+          <div class="card">
+
+
+            <div class="topnav">
+              <div class="search-container">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+            </div>
+
+          
+              </div>
+              
+          </div>
+          <div class="filter-container">
+            <select id="filterBy">
+              <option value="author">Author</option>
+              <option value="type">Type</option>
+            </select>
+            <button class="filter-button">Filter</button>
+          </div>
+      
+
+            <br>
+            <div class="card-grid">
+              <div class="card" onclick="openCard('card1')">
+                <img src="mush.jpg" alt="Image 1">
+                <div class="card-info">
+                  <h4>The Enchanted Mycelium</h4>
+                  <p>By: Ana Grave</p>
+                  <p>Type: Story</p>
+                </div>
+              </div>
+              <div class="card" onclick="openCard('card1')">
+                <img src="witch.jpg" alt="Image 2">
+                <div class="card-info">
+                  <h4>The Tale of Luna and Willow</h4>
+                  <p>By: Luna Mckinsey</p>
+                  <p>Type: Poetry</p>
+                </div>
+              </div>
+              <div class="card" onclick="openCard('card1')">
+                <img src="princ.jpg" alt="Image 3">
+                <div class="card-info">
+                  <h4>You are on Your Own</h4>
+                  <p>By: Alora Adams</p>
+                  <p>Type: Blog</p>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        
+
+
+          <div id="Write" class="tabcontent">
+            <div class="container6 fullscreen">
+                <h2>Start Writing</h2>
+                <form id="writeForm">
+                    <label for="writingType">Type of Writing:</label>
+                    <select id="writingType" name="writingType">
+                        <option value="story">Story</option>
+                        <option value="poetry">Poetry</option>
+                        <option value="blog">Blog</option>
+                    </select><br><br>
+                    <label for="authorName">Author Name:</label>
+                    <input type="text" id="authorName" name="authorName" required><br><br>
+                    <label for="tags">Tags:</label>
+                    <input type="text" id="tags" name="tags"><br><br>
+                    <button type="button" onclick="startWriting()">Start Writing</button><br><br>
+                </form>
+                <div id="writingArea" style="display: none;">
+                    <textarea id="writingContent" rows="20" cols="100"></textarea><br><br>
+                    <button type="button" onclick="publish()">Publish</button>
+                    <button type="button" onclick="clearAll()">Clear All</button>
+                </div>
+            </div>
+        </div>
+      
+
+      <div id="Publish" class="tabcontent">
+      
+        <div class="container4">
+          <h4>Publish Your Work</h4>
+          <h5><i>in our magazine!</i></h5><br>
+          <form id="publishForm">
+            <label for="type">Select Type:</label>
+            <select id="type" name="type">
+              <option>Select--></option>
+              <option value="book">Book</option>
+              <option value="poetry">Poetry</option>
+            </select><br>
+            <div id="bookFields" style="display: none; height: 440px;
+            background-color: whitesmoke;
+            border-radius: 30px;
+            background-color: rgba(42, 72, 28, 0.7);
+            width: 80%;
+            margin: 50px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email"><br><br>
+              <label for="pages">Number of Pages:</label>
+              <input type="number" id="pages" name="pages"><br><br>
+              <label for="binding">Binding Type:</label>
+              <select id="binding" name="binding">
+                <option value="paperback">Paperback</option>
+                <option value="hardcover">Hardcover</option>
+              </select><br><br>
+              <label for="pdf">Upload PDF:</label>
+              <input type="file" id="pdf" name="pdf"><br><br>
+              <button type="submit">Submit</button>
+            </div>
+            <div id="poetryFields" style="display: none;height: 250px;
+            background-color: whitesmoke;
+            border-radius: 30px;
+            background-color: rgba(42, 72, 28, 0.7);
+            width: 80%;
+            margin: 50px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email"><br><br>
+              <label for="poetryPdf">Upload PDF:</label>
+              <input type="file" id="poetryPdf" name="poetryPdf"><br><br>
+              <button type="submit">Submit</button>
+            </div>
+            
+          </form>
+        </div>
+
+      </div>
 </div>
+<footer class="footer">
+  <div class="footer-content">
+      <div class="social-media">
+          <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+      </div>
+      <div class="contact-info">
+          <p>Email:<a href="mailto:admin@fernweh.com">admin@fernweh.com</a>
+          <br>Contact: +91 9108151003</p>
+      </div>
+  </div>
+</footer>
+
+<!--
+<script>
+  window.addEventListener('mousemove', function(e) {
+    var arr = [1, 0.9, 0.8, 0.5, 0.2];
+
+    arr.forEach(function(i) {
+      var x = (1 - i) * 75;
+      var star = document.createElement('div');
+
+      star.className = 'star';
+      star.style.top = e.pageY + Math.round(Math.random() * x - x / 2) + 'px';
+      star.style.left = e.pageX + Math.round(Math.random() * x - x / 2) + 'px';
+
+      document.body.appendChild(star);
+
+      window.setTimeout(function() {
+        document.body.removeChild(star);
+      }, Math.round(Math.random() * i * 600));
+    });
+  }, false);
+
+  function openCity(evt, cityName) {
+var i, tabcontent, tablinks;
+tabcontent = document.getElementsByClassName("tabcontent");
+for (i = 0; i < tabcontent.length; i++) {
+  tabcontent[i].style.display = "none";
+}
+tablinks = document.getElementsByClassName("tablinks");
+for (i = 0; i < tablinks.length; i++) {
+  tablinks[i].className = tablinks[i].className.replace(" active", "");
+}
+document.getElementById(cityName).style.display = "block";
+evt.currentTarget.className += " active";
+}
+document.getElementById('type').addEventListener('change', function() {
+var bookFields = document.getElementById('bookFields');
+var poetryFields = document.getElementById('poetryFields');
+if (this.value === 'book') {
+  bookFields.style.display = 'block';
+  poetryFields.style.display = 'none';
+} else if (this.value === 'poetry') {
+  bookFields.style.display = 'none';
+  poetryFields.style.display = 'block';
+}
+});
+
+document.getElementById('publishForm').addEventListener('submit', function(event) {
+event.preventDefault();
+
+var type = document.getElementById('type').value;
+var isValid = true;
+
+if (type === 'book') {
+  var email = document.getElementById('email').value;
+  var pages = document.getElementById('pages').value;
+  var pdf = document.getElementById('pdf').value;
+
+  if (!email || !pages || !pdf) {
+    alert('Please fill in all the required fields.');
+    isValid = false;
+  }
+} else if (type === 'poetry') {
+  var poetryPdf = document.getElementById('poetryPdf').value;
+  if (!poetryPdf) {
+    alert('Please upload your poetry PDF.');
+    isValid = false;
+  }
+}
+
+if (isValid) {
+  if (type === 'book') {
+    alert('Our experts are verifying your book. If confirmed, you will receive a mail.');
+  } else if (type === 'poetry') {
+    alert('Successful submission! Our experts will verify and get back to you shortly.');
+  }
+}
+});
+
+document.querySelector('.search-button').addEventListener('click', function() {
+var searchInput = document.getElementById('searchInput').value;
+// Add search functionality here
+alert('Searching for: ' + searchInput);
+});
+
+document.querySelector('.filter-button').addEventListener('click', function() {
+  var filterBy = document.getElementById('filterBy').value;
+  var filterInput = document.getElementById('searchInput').value.toLowerCase();
+
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+    var cardText = card.textContent.toLowerCase();
+    if (filterBy === 'author' && cardText.includes(filterInput)) {
+      card.style.display = 'block';
+    } else if (filterBy === 'type' && cardText.includes(filterInput)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+document.querySelector('button[type="submit"]').addEventListener('click', function() {
+  var searchInput = document.getElementById('searchInput').value;
+  // Add search functionality here
+  alert('Searching for: ' + searchInput);
+});
+function startWriting() {
+    document.getElementById('writingArea').style.display = 'block';
+}
+function publish() {
+    var content = document.getElementById("writingContent").value.trim();
+    var wordCount = content.split(/\s+/).length;
+
+    if (content === "" || wordCount < 20) {
+        alert("Your work cannot be published. Please make sure the content is not empty and contains at least 20 words.");
+    } else {
+        alert("Your work will be verified and published soon. Keep checking the Read section for you work!.");
+        document.getElementById("Write").style.display = "block";
+        document.getElementById("writingArea").style.display = "none";
+    }
+}
+
+function clearAll() {
+    document.getElementById("writingContent").value = "";
+}
+
+function startWriting() {
+    document.getElementById("writingArea").style.display = "block";
+    document.getElementById("Write").style.display = "none";
+}
+
+
+</script>
+-->
 
 <script>
-    document.getElementById('poemContainer').addEventListener('click', function() {
-        window.location.href = 'write.html'; 
+  window.addEventListener('mousemove', function(e) {
+    var arr = [1, 0.9, 0.8, 0.5, 0.2];
+
+    arr.forEach(function(i) {
+      var x = (1 - i) * 75;
+      var star = document.createElement('div');
+
+      star.className = 'star';
+      star.style.top = e.pageY + Math.round(Math.random() * x - x / 2) + 'px';
+      star.style.left = e.pageX + Math.round(Math.random() * x - x / 2) + 'px';
+
+      document.body.appendChild(star);
+
+      window.setTimeout(function() {
+        document.body.removeChild(star);
+      }, Math.round(Math.random() * i * 600));
     });
+  }, false);
 
-    document.getElementById('storyContainer').addEventListener('click', function() {
-        window.location.href = 'read.html'; 
+  
+
+  document.getElementById('type').addEventListener('change', function() {
+    var bookFields = document.getElementById('bookFields');
+    var poetryFields = document.getElementById('poetryFields');
+    if (this.value === 'book') {
+      bookFields.style.display = 'block';
+      poetryFields.style.display = 'none';
+    } else if (this.value === 'poetry') {
+      bookFields.style.display = 'none';
+      poetryFields.style.display = 'block';
+    }
+  });
+
+  document.getElementById('publishForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var type = document.getElementById('type').value;
+    var isValid = true;
+
+    if (type === 'book') {
+      var email = document.getElementById('email').value;
+      var pages = document.getElementById('pages').value;
+      var pdf = document.getElementById('pdf').value;
+
+      if (!email || !pages || !pdf) {
+        alert('Please fill in all the required fields.');
+        isValid = false;
+      }
+    } else if (type === 'poetry') {
+      var poetryPdf = document.getElementById('poetryPdf').value;
+      if (!poetryPdf) {
+        alert('Please upload your poetry PDF.');
+        isValid = false;
+      }
+    }
+
+    if (isValid) {
+      if (type === 'book') {
+        alert('Our experts are verifying your book. If confirmed, you will receive a mail.');
+      } else if (type === 'poetry') {
+        alert('Successful submission! Our experts will verify and get back to you shortly.');
+      }
+    }
+  });
+
+  document.querySelector('.search-button').addEventListener('click', function() {
+    var searchInput = document.getElementById('searchInput').value;
+    alert('Searching for: ' + searchInput);
+  });
+
+  document.querySelector('.filter-button').addEventListener('click', function() {
+    var filterBy = document.getElementById('filterBy').value;
+    var filterInput = document.getElementById('searchInput').value.toLowerCase();
+
+    var cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+      var cardText = card.textContent.toLowerCase();
+      if (filterBy === 'author' && cardText.includes(filterInput)) {
+        card.style.display = 'block';
+      } else if (filterBy === 'type' && cardText.includes(filterInput)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
     });
-    window.addEventListener('mousemove', function(e) {
-      var arr = [1, 0.9, 0.8, 0.5, 0.2];
+  });
 
-      arr.forEach(function(i) {
-        var x = (1 - i) * 75;
-        var star = document.createElement('div');
+  function publish() {
+    var content = document.getElementById("writingContent").value.trim();
+    var wordCount = content.split(/\s+/).length;
 
-        star.className = 'star';
-        star.style.top = e.pageY + Math.round(Math.random() * x - x / 2) + 'px';
-        star.style.left = e.pageX + Math.round(Math.random() * x - x / 2) + 'px';
+    if (content === "" || wordCount < 50) {
+      alert("Your work cannot be published. Please make sure the content is not empty and contains at least 50 words.");
+    } else {
+      alert("Your work has been published! Check the Read section.");
+      document.getElementById("Write").style.display = "block";
+      document.getElementById("writingArea").style.display = "none";
+    }
+  }
 
-        document.body.appendChild(star);
+  function clearAll() {
+    document.getElementById("writingContent").value = "";
+  }
 
-        window.setTimeout(function() {
-          document.body.removeChild(star);
-        }, Math.round(Math.random() * i * 600));
-      });
-    }, false);
+  function startWriting() {
+    document.getElementById("writingArea").style.display = "block";
+    document.getElementById("Home").style.display = "none";
+    document.getElementById("Read").style.display = "none";
+    document.getElementById("Publish").style.display = "none";
+    var tablinks = document.getElementsByClassName("tablinks");
+    for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+}
+function setDefaultTab() {
+        var currentTab = localStorage.getItem('currentTab');
+        if (currentTab) {
+            openCity(event, currentTab);
+        } else {
+            document.querySelector('.tablinks').click();
+        }
+    }
+
+    function openCity(event, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    event.currentTarget.className += " active";
+    localStorage.setItem('currentTab', cityName);
+    if (cityName === "Home" || cityName === "Publish") {
+        document.getElementById("mainFooter").classList.add("fixed-footer");
+    } else {
+        document.getElementById("mainFooter").classList.remove("fixed-footer");
+    }
+}
+
 </script>
+
 
 </body>
 </html>
