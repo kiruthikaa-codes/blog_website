@@ -306,11 +306,7 @@ function setDefaultTab() {
     document.getElementById(cityName).style.display = "block";
     event.currentTarget.className += " active";
     localStorage.setItem('currentTab', cityName);
-    if (cityName === "Home" || cityName === "Publish") {
-        document.getElementById("mainFooter").classList.add("fixed-footer");
-    } else {
-        document.getElementById("mainFooter").classList.remove("fixed-footer");
-    }
+    
 }
 
 </script>
