@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js" > </script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Fernweh</title>
@@ -29,7 +28,6 @@
 
         <div id="Read" class="tabcontent">
           <div class="card">
-
 
             <div class="topnav">
               <div class="search-container">
@@ -80,7 +78,6 @@
           </div>
        
         
-
 
           <div id="Write" class="tabcontent">
             <div class="container6 fullscreen">
@@ -171,7 +168,9 @@
   </div>
 </footer>
 
-<script>   window.addEventListener('mousemove', function(e) {
+
+<script>
+  window.addEventListener('mousemove', function(e) {
     var arr = [1, 0.9, 0.8, 0.5, 0.2];
 
     arr.forEach(function(i) {
@@ -262,8 +261,8 @@
     var content = document.getElementById("writingContent").value.trim();
     var wordCount = content.split(/\s+/).length;
 
-    if (content === "" || wordCount < 20) {
-      alert("Your work cannot be published. Please make sure the content is not empty and contains at least 20 words.");
+    if (content === "" || wordCount < 50) {
+      alert("Your work cannot be published. Please make sure the content is not empty and contains at least 50 words.");
     } else {
       alert("Your work has been published! Check the Read section.");
       document.getElementById("Write").style.display = "block";
@@ -313,6 +312,9 @@ function setDefaultTab() {
         document.getElementById("mainFooter").classList.remove("fixed-footer");
     }
 }
+
 </script>
+
 </body>
 </html>
+
